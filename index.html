@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-    <title>R.each</title>
+    <title>Reach</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -10,96 +10,155 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="styles.css" rel="stylesheet">
   </head>
-  <body class="bg-light">
-    <main>
-      <div class="py-5 container">
-        <div class="text-center">
-          <a href="index.html">
-            <img class="d-block mx-auto mb-4" src="images/logo-small.png" alt="Logo" height="72" width="72">
-          </a>
-          <h1>R.each</h1>
-          <p class="lead">Reach is an application that lets you send WhatsApp notifications to your customers.</p>
-        </div>
-
+  <body>
+    <header>
+      <div id="header-container" class="d-flex justify-content-start">
         <div>
-          <div class="text-center">
-            <h2 class="h2">How to use the app</h2>
+          <a href="index.html">
+            <img class="d-block py-2 px-2" src="images/logo-small.png" alt="Logo" height=72" width="72">
+          </a>
+        </div>
+        <a id="contact-us" class="btn btn-primary ms-auto" href="mailto:support@reach-app.com" target="_blank">
+          Contact us
+        </a>
+      </div>
+    </header>
+    <main>
+      <div id="banner" class="d-flex align-items-center flex-column">
+        <h1>Reach</h1>
+        <p class="lead">Reach is an application that lets you send proactive WhatsApp notifications to your customers.</p>
+        <p class="lead">Easy setup.</p>
+
+        <a id="install" class="btn btn-primary" href="https://www.zendesk.com/marketplace/apps/support/675876/reach/" target="_blank">
+          Install the app today
+        </a>
+
+        <ul class="nav nav-tabs mt-auto">
+          <li class="nav-item">
+            <a class="nav-link active"
+               id="setup-tab"
+               data-bs-toggle="tab"
+               role="tab"
+               aria-current="page"
+               data-bs-target="#setup"
+               href="#setup">
+              Setting up
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+               id="individual-tab"
+               data-bs-toggle="tab"
+               role="tab"
+               data-bs-target="#individual"
+               href="#individual">
+               Send individual template
+               </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+               id="bulk-tab"
+               data-bs-toggle="tab"
+               role="tab"
+               data-bs-target="#bulk"
+               href="#bulk">
+              Send bulk templates
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="py-5 container">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="setup" role="tabpanel" aria-labelledby="setup-tab">
+            <h2 class="h2">How to setup the app</h2>
+
+            In order to setup the Reach App, you need 3 things: App ID,  App Token and the WhatsApp namespace.
+
+            <h3 class="h3">App ID</h3>
+
+            <p>The App ID is available in the URL of your WhatsApp dashboard.</p>
+
+            <h3 class="h3">App Token</h3>
+
+            <p>Generate the App Token using the ID and SECRET from your API Keys table. Head to
+              <a href="https://jwt.io/" target="_blank">jwt.io</a>
+              to generate your JSON Web Token (JWT) and follow these instructions:
+            </p>
+
+            <img id="how-to" class="highlight" src="./images/how_to_token.png" alt="How to generate token" width="800"/>
+
+            <h3 class="h3">Namespace</h3>
+            <p>Reach out to your Sunshine Conversation representative to get your WhatsApp namespace if you do not have it already.</p>
           </div>
+          <div class="tab-pane fade" id="individual" role="tabpanel" aria-labelledby="individual-tab">
+            <h2 class="h2">Send individual templates</h2>
 
-          <h3 class="h4">The template</h3>
+            <p>Send one proactive WhatsApp message at a time with the "Send single notification option".</p>
+            <p>
+              First, select a template and the language from the dropdowns. If the template requires variables,
+              fill out the variable fields and click Send.
+            </p>
 
-          <p>
-            The app lists the WhatsApp templates that have been approved.
-            The app currently does not support templates with image or document headers, only text headers.
-            First, select the template you would like to use to notify your customers.
-          </p>
+            <h3 class="h3">Template without variables</h3>
 
-          <h3 class="h4">The language</h3>
+            <img id="single-template-no-variables"
+                 class="highlight"
+                 src="./images/template_without_variables.png"
+                 alt="How to generate token"
+                 width="800"/>
 
-          <p>
-            A template may be published in different languages. If the template you selected is available is more than one language,
-            you can use the language dropdown to select the language of the template. The content will update accordingly.
-          </p>
+            <h3 class="h3">Template without variables</h3>
 
-          <h3 class="h4">The CSV file</h3>
+            <img id="single-template-with-variables"
+                 class="highlight"
+                 src="./images/template_with_variables.png"
+                 alt="How to generate token"
+                 width="800"/>
+          </div>
+          <div class="tab-pane fade" id="bulk" role="tabpanel" aria-labelledby="bulk-tab">
+            <h2 class="h2">Send bulk templates</h2>
 
-          <p>
-            A template may contain just a body component or a header, a body and a footer component.
-            Each of those components could contain a parameter that needs to be specified when sending a notification.
-            The next section explains how to build the CSV file depending on the template.
-          </p>
+            <p>Send bulk proactive WhatsApp messages under "Send bulk notifications via CSV".</p>
+            <p>
+              First, select a template and the language from the dropdowns. Then, build a CSV file for the selected template.
+              Below are the instructions for building the CSV file depending on the template variables.
+            </p>
 
-          <p>
-            The number of notifications is limited to 500 per file.
-          </p>
+            <h3 class="h3">Template without variables</h3>
 
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  With no parameters
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>When there are no parameters, the CSV must contain only one column and each row must have only one phone number.</p>
-                  <p>Example:</p>
-                  <pre>
+            <div>
+              <p>When there are no parameters, the CSV must contain only one column and each row must have only one phone number.</p>
+              <p>Example:</p>
+              <pre>
                     <code>
       7188765678
       1230987687</code>
                   </pre>
-                </div>
-              </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  With parameters
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>
-                    When there are parameters in the template, the CSV must contain one column per parameter.
-                  <ul>
-                    <li>The first column must be the phone number.</li>
-                    <li>The next columns must be the variables of the header.</li>
-                    <li>The next columns must be the variables of the body.</li>
-                  </ul>
-                  </p>
-                  <p>Example with the following template:
-                  <p><code>HEADER: Hi {{1}}.</code></p>
-                  <p><code>BODY: This is a message from {{1}} on {{2}}.</code></p>
-                  <p><code>FOOTER: Thank you.</code></p>
-                  <pre>
+
+            <h3 class="h4">Template with variables</h3>
+
+            <div>
+              <p>
+                When there are parameters in the template, the CSV must contain one column per parameter.
+                <ul>
+                  <li>The first column must be the phone number.</li>
+                  <li>The next columns must be the variables of the header.</li>
+                  <li>The next columns must be the variables of the body.</li>
+                </ul>
+              </p>
+
+              <p>Example with the following template:</p>
+              <p><code>HEADER: Hi {{1}}.</code></p>
+              <p><code>BODY: This is a message from {{1}} on {{2}}.</code></p>
+              <p><code>FOOTER: Thank you.</code></p>
+              <pre>
                     <code>
       7188765678, Rose, Your Support Advisor, 01-01-2022
       1230987687, Jack, Your Support Advisor, 01-01-2022</code>
                   </pre>
-                </div>
-              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -109,7 +168,6 @@
       <ul class="nav justify-content-center">
         <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
         <li class="nav-item"><a href="terms-and-conditions.html" class="nav-link px-2 text-muted">Terms and Conditions</a></li>
-        <li class="nav-item"><a href="faq.html" class="nav-link px-2 text-muted">FAQ</a></li>
       </ul>
     </footer>
   </body>
