@@ -6,7 +6,6 @@ img .highlight {
   box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
 }
 
-
 /* HEADER */
 
 header {
@@ -71,7 +70,7 @@ header {
 #install {
   background-color: #075e54;
   border-color: #075e54;
-  margin-bottom: 50px;
+  margin: 50px 0;
 }
 
 
